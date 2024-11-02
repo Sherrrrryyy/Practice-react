@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -44,7 +44,15 @@ function App() {
 // useEffect Hook
 
 
+// const [visible, setVisible] = useState(false)
 
+
+const [change, setChange] = useState("")
+
+
+useEffect(()=>{
+setChange(change => change + "I'm changed")
+},[change])
 
 
   return (
@@ -58,7 +66,12 @@ function App() {
       <button onClick={changeCarColorAndBrand}>Change color and brand name</button> */}
       {/* <button onClick={incrementNum}>increase number</button> */}
 
-{/* useState Hook */}
+
+<div className='group relative'>
+  <p className='text-3xl text-black '>I'm about to chnage</p> <button onClick={setChange()} className='border border-gray-800 p-2 rounded-full'>Change me</button>
+  <h1 className='bg-black text-white text-5xl w-full cursor-pointer'>My car is REVO</h1>
+</div>
+
 
 
     </>
