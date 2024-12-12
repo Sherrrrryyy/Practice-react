@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { useEffect, useRef, useState } from 'react'
+
+
+
+
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -91,13 +93,102 @@ function App() {
   // },[])
 
 
-const count = useRef(25)
-console.log(count);
+  // const count = useRef(25)
+  // console.log(count);
 
 
+  // const [name, setName] = useState("Shaheer")
+
+  // const handleUser = (e)=>{
+  // setName(e.target.value)
+  // }
+
+  // const [number,setNumber] = useState(0)
+  // const [postNumber,isPosNumber] = useState()
+
+  // const incrementNumber= ()=>{
+  //   setNumber(number + 1)
+  // }
+  // const decrementNumber= ()=>{
+  //   setNumber((prev)=>prev - 1)
+  // }
+
+  // console.log(name);
+
+
+  const [amount, setAmount] = useState(0);
+  const [type, setType] = useState('income');
+  const [transaction, setTransaction] = useState([])
+
+const handleAddTransaction=()=>{
+
+setTransaction([...transaction, {amount,type}])
+setAmount('')
+setType('income')
+
+}
+
+console.log(transaction);
 
   return (
     <>
+
+
+      <div>
+
+        <input
+          onChange={(e) => setAmount(e.target.value)}
+          className='border border-black p-1 rounded-md mx-2'
+          value={amount}
+          placeholder='Enter Amount'
+          type='number' />
+
+        <select
+          onChange={(e) => setType(e.target.value)}
+          value={type}
+          className='border border-black p-1 rounded-md mx-2' name="" id="">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+
+        <button 
+        onClick={handleAddTransaction}
+        className='border border-black p-1 rounded-md mx-2'>Submit</button>
+
+
+<div>
+  {
+    transaction.map((data,index)=>{
+      return (
+        <div key={index} className='flex justify-between'>
+        <h1 className='font-bold underline text-3xl'>{data.amount}</h1>
+        <h1 className={`font-bold underline text-3xl ${data.type === "income" ? "text-green-500" : "text-red-500"}`} >{data.type}</h1>
+
+      </div>
+      )
+     
+    })
+  }
+</div>
+
+      </div>
+
+
+
+      <div className='flex justify-center items-center'>
+        {/* 
+<input value={name}
+placeholder='Enter Your Name'
+onChange={handleUser}
+className='border-red-500 border'
+/> */}
+
+        {/* <button onClick={incrementNumber} className='borer border-gray-400 bg-black text-white text-lg p-5'>+</button>
+<h1 className='m-5'>{number}</h1>
+<button onClick={decrementNumber} className='borer border-gray-400 bg-black text-white text-lg p-5'>-</button> */}
+      </div>
+
+
 
       {/* useState Hook */}
       {/* 
@@ -128,7 +219,7 @@ console.log(count);
       {/* <h1>I've rendering {change} times</h1> */}
 
 
-<h1>Render count: {count.current}</h1>
+      {/* <h1>Render count: {count.current}</h1> */}
     </>
   )
 }
