@@ -1,5 +1,8 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import { useEffect, useRef, useState } from 'react';
+import Home from './pages/Home';
+import Signup from './pages/Signup';
 
 
 
@@ -152,26 +155,34 @@ function App() {
   // const changeColor = (bgColor) => {
   //   setBgColor(bgColor)
   // }
-// const [amount, setAmount] = useState('')
-// const [transaction, setTransaction] = useState([])
-// const [type, setType] = useState('income')
-// const [balance, setBalance] = useState(0)
+  // const [amount, setAmount] = useState('')
+  // const [transaction, setTransaction] = useState([])
+  // const [type, setType] = useState('income')
+  // const [balance, setBalance] = useState(0)
 
-// const handleTransaction = () =>{
-//   const newAmount = parseFloat(amount);
-//   const newBalance = type === 'income' ? balance + newAmount : balance - newAmount;
-//   setTransaction([...transaction, {amount,type, balance: newBalance}])
-//   setAmount('')
-//   setType('income')
-//   setBalance(newBalance)
-// }
+  // const handleTransaction = () =>{
+  //   const newAmount = parseFloat(amount);
+  //   const newBalance = type === 'income' ? balance + newAmount : balance - newAmount;
+  //   setTransaction([...transaction, {amount,type, balance: newBalance}])
+  //   setAmount('')
+  //   setType('income')
+  //   setBalance(newBalance)
+  // }
 
-// console.log(transaction)
+  // console.log(transaction)
+
 
   return (
     <>
 
-{/* <div>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/signup' element={<Signup />} />
+    </Routes>
+    </BrowserRouter>
+
+      {/* <div>
   <input
   onChange={(e) => setAmount(e.target.value)}
   className='m-2 border border-black p-2 rounded-lg'
@@ -309,9 +320,8 @@ className='border-red-500 border'
       {/* <h1>Render count: {count.current}</h1> */}
 
 
-
-
     </>
+
   )
 }
 
