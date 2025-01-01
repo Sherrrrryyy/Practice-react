@@ -152,11 +152,61 @@ function App() {
   // const changeColor = (bgColor) => {
   //   setBgColor(bgColor)
   // }
+const [amount, setAmount] = useState('')
+const [transaction, setTransaction] = useState([])
+const [type, setType] = useState('income')
+const [balance, setBalance] = useState(0)
 
+const handleTransaction = () =>{
+  const newAmount = parseFloat(amount);
+  const newBalance = type === 'income' ? balance + newAmount : balance - newAmount;
+  setTransaction([...transaction, {amount,type, balance: newBalance}])
+  setAmount('')
+  setType('income')
+  setBalance(newBalance)
+}
+
+console.log(transaction)
 
   return (
     <>
 
+<div>
+  <input
+  onChange={(e) => setAmount(e.target.value)}
+  className='m-2 border border-black p-2 rounded-lg'
+  value={amount}
+  type="text"
+  placeholder='Enter your Income/Expense' />
+
+  <select
+  value={type}
+  onChange={(e) => setType(e.target.value)}
+  className='border m-2 border-black p-2 rounded-lg ' name="" id="">
+    <option value="income">Income</option>
+    <option value="expense">Expense</option>
+  </select>
+  <button
+  onClick={handleTransaction}
+  className='bg-blue-500 p-2 text-white rounded-lg'>Submit</button>
+  <h1>Balance : {balance}</h1>
+</div>
+
+
+<div>
+  {
+    transaction.map((data, ind)=>{
+      return(
+        <div className='flex justify-around' key={ind}>
+          <h1 className=''>{data.amount}</h1>
+          <h1 className=''>{data.type}</h1>
+          <h1 className=''>{data.balance}</h1>
+
+        </div>
+      )
+    })
+  }
+</div>
       {/* 
       <h1>Chai aur React</h1>
       <h1>Value of change {amount} </h1>
@@ -257,6 +307,10 @@ className='border-red-500 border'
 
       {/* <h1>I've rendering {change} times</h1> */}
       {/* <h1>Render count: {count.current}</h1> */}
+
+
+
+
     </>
   )
 }
