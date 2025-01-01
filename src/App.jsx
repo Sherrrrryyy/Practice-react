@@ -1,11 +1,13 @@
 import './App.css'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react';
 
 
 
 
 
 function App() {
+
+
   // const [count, setCount] = useState(0)
   // const [myCar, setMyCar] = useState({
   //   car: "Land Cruiser",
@@ -116,26 +118,63 @@ function App() {
   // console.log(name);
 
 
-  const [amount, setAmount] = useState(0);
-  const [type, setType] = useState('income');
-  const [transaction, setTransaction] = useState([])
+  // const [amount, setAmount] = useState(0);
+  // const [type, setType] = useState('income');
+  // const [transaction, setTransaction] = useState([])
 
-const handleAddTransaction=()=>{
+  // const handleAddTransaction = () => {
 
-setTransaction([...transaction, {amount,type}])
-setAmount('')
-setType('income')
+  //   setTransaction([...transaction, { amount, type }])
+  //   setAmount('')
+  //   setType('income')
 
-}
+  // }
 
-console.log(transaction);
+  // console.log(transaction);
+
+
+  //   const [amount, setAmount] = useState(0)
+
+  // const addValue = () =>{
+  //   setAmount(amount => amount + 2)
+  //   console.log("Value added", amount);
+
+  // }
+
+  // const removeValue = ()=>{
+  //   setAmount(prev => prev - 2)
+  //   console.log("Value removed", amount);
+
+  // }
+
+  // const [bgColor, setBgColor] = useState('white')
+
+  // const changeColor = (bgColor) => {
+  //   setBgColor(bgColor)
+  // }
+
 
   return (
     <>
 
+      {/* 
+      <h1>Chai aur React</h1>
+      <h1>Value of change {amount} </h1>
 
-      <div>
 
+      <button className='text-white m-2 p-1 rounded-full bg-blue-400' onClick={addValue}>Add Value</button>
+      <button className='text-white m-2 p-1 rounded-full bg-blue-400' onClick={removeValue}>Remove Value</button> */}
+
+
+      {/* <div style={{ backgroundColor: bgColor, height: "100vh", padding: "20px" }}>
+        <button className=' p-2 text-black m-2' onClick={()=> changeColor('red')}>Red</button>
+        <button className=' p-2 text-black m-2' onClick={()=> changeColor('blue')}>Blue</button>
+        <button className=' p-2 text-black m-2' onClick={()=> changeColor('green')}>green</button>
+        <button className=' p-2 text-black m-2' onClick={()=> changeColor('purple')}>purple</button>
+        <button className='p-2 text-black m-2' onClick={()=> changeColor('yellow')}>yellow</button>
+      </div> */}
+
+      {/* <div>
         <input
           onChange={(e) => setAmount(e.target.value)}
           className='border border-black p-1 rounded-md mx-2'
@@ -171,22 +210,22 @@ console.log(transaction);
   }
 </div>
 
-      </div>
+      </div> */}
 
 
 
-      <div className='flex justify-center items-center'>
-        {/* 
+      {/* <div className='flex justify-center items-center'> */}
+      {/* 
 <input value={name}
 placeholder='Enter Your Name'
 onChange={handleUser}
 className='border-red-500 border'
 /> */}
 
-        {/* <button onClick={incrementNumber} className='borer border-gray-400 bg-black text-white text-lg p-5'>+</button>
+      {/* <button onClick={incrementNumber} className='borer border-gray-400 bg-black text-white text-lg p-5'>+</button>
 <h1 className='m-5'>{number}</h1>
 <button onClick={decrementNumber} className='borer border-gray-400 bg-black text-white text-lg p-5'>-</button> */}
-      </div>
+      {/* </div> */}
 
 
 
@@ -217,8 +256,6 @@ className='border-red-500 border'
 </div> */}
 
       {/* <h1>I've rendering {change} times</h1> */}
-
-
       {/* <h1>Render count: {count.current}</h1> */}
     </>
   )
